@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Calculator</title>
+
+    <style>
+        /* SAME ATM CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .atm-box {
+            background: white;
+            padding: 30px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #5b86e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #3b6bdc;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="atm-box">
+    <h2>Student Result Calculator</h2>
+
+    <input type="number" id="m1" placeholder="Subject 1 Marks">
+    <input type="number" id="m2" placeholder="Subject 2 Marks">
+    <input type="number" id="m3" placeholder="Subject 3 Marks">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+
+function calculate() {
+
+    var a = Number(document.getElementById("m1").value);
+    var b = Number(document.getElementById("m2").value);
+    var c = Number(document.getElementById("m3").value);
+
+    var total = a + b + c;
+    var per = total / 3;
+
+    var grade;
+
+    if (per >= 80)
+        grade = "A";
+    else if (per >= 60)
+        grade = "B";
+    else if (per >= 40)
+        grade = "C";
+    else
+        grade = "Fail";
+
+    document.getElementById("result").innerHTML =
+        "Total = " + total +
+        "<br>Percentage = " + per +
+        "<br>Grade = " + grade;
+}
+
+</script>
+
+</body>
+</html>

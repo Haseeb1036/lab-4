@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .atm-box {
+            background: white;
+            padding: 30px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .balance {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: green;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #5b86e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #3b6bdc;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="atm-box">
+    <h2>Simple ATM System</h2>
+
+    <div class="balance" id="balance">
+        Current Balance: 5000
+    </div>
+
+    <input type="number" id="withdrawAmount" placeholder="Enter Withdrawal Amount">
+
+    <button onclick="withdrawMoney()">Withdraw</button>
+</div>
+
+<script>
+
+    let balance = 5000;
+
+    function withdrawMoney() {
+
+        let amount = Number(document.getElementById("withdrawAmount").value);
+
+        if (amount <= 0) {
+            alert("Enter a valid amount!");
+        }
+        else if (amount > balance) {
+            alert("Insufficient Balance!");
+        }
+        else {
+            balance = balance - amount;
+
+            document.getElementById("balance").innerHTML =
+                "Current Balance: " + balance;
+
+            alert("Withdrawal Successful!");
+        }
+    }
+
+</script>
+
+</body>
+</html>
